@@ -1,94 +1,85 @@
 {
-    "compilerOptions": {
+  "compilerOptions": {
+    /* 基本配置 */
 
-        /* 基本配置 */
+    // 编译成哪个版本的 es
+    "target": "ESNext",
 
-        // 编译成哪个版本的 es
-        "target": "es6",
+    // 指定生成哪个模块系统代码
+    "module": "commonjs",
 
-        // 指定生成哪个模块系统代码
-        "module": "commonjs",
+    // 编译过程中需要引入的库文件的列表
+    "lib": ["ESNext"],
 
-        // 编译过程中需要引入的库文件的列表
-        "lib": ["ESNext"],
+    // 允许编译 js 文件
+    "allowJs": false,
 
-        // 允许编译 js 文件
-        "allowJs": false,
+    // 输出声明文件
+    "declaration": true,
 
-        // 在 .tsx 文件里支持 JSX
-        // "jsx": "react",
+    // 输出目录
+    "outDir": "./lib",
 
-        // 提供额外的一些语法检查
-        "isolatedModules": false,
+    // 在 .tsx 文件里支持 JSX
+    "jsx": "react",
 
-        // 启用所有严格类型检查选项
-        "strict": true,
+    // 提供额外的一些语法检查
+    "isolatedModules": false,
 
-        // 对于隐含有'any'类型的表达式和声明引发错误
-        "noImplicitAny": false,
+    // 启用所有严格类型检查选项
+    "strict": true,
 
-        // 启用严格的空检查
-        "strictNullChecks": true,
+    // 对于隐含有'any'类型的表达式和声明引发错误
+    "noImplicitAny": false,
 
-        /* 模块解析选项 */
+    // 启用严格的空检查
+    "strictNullChecks": false,
 
-        // 指定模块解析策略
-        "moduleResolution": "node",
+    /* 模块解析选项 */
 
-        // 支持 CommonJS 和 ES 模块之间的互操作性
-        "esModuleInterop": true,
+    // 指定模块解析策略
+    "moduleResolution": "node",
 
-        // 支持导入 json 模块
-        "resolveJsonModule": false,
+    // 支持 CommonJS 和 ES 模块之间的互操作性
+    "esModuleInterop": true,
 
-        /* 编译设置 */
+    // 支持导入 json 模块
+    "resolveJsonModule": false,
 
-        // 生成对应 '.d.ts' 文件.
-        "declaration": true,
+    /* 映射路径 */
 
-        // 输出目录
-        "outDir": "./dist",
+    // 基础路径
+    "baseUrl": "./src",
 
-        /* 映射路径 */
-
-        // 基础路径
-        // "baseUrl": "./src",
-
-        // 配置映射,需要依赖: tsconfig-paths | webpack | ...
-        // "paths": {
-        //     "@config/*": ["config/*"],
-        //     "@constants/*": ["constants/*"],
-        //     "@controller/*": ["controller/*"],
-        //     "@db/*": ["db/*"],
-        //     "@libs/*": ["libs/*"],
-        //     "@middleware/*": ["middleware/*"],
-        //     "@model/*": ["model/*"],
-        //     "@router/*": ["router/*"],
-        //     "@services/*": ["services/*"],
-        //     "@types/*": ["types/*"],
-        //     "@typings/*": ["typings/*"],
-        //     "@utils/*": ["utils/*"]
-        // },
-
-        /* 实验性选项 */
-
-        // 启用实验性的ES装饰器
-        "experimentalDecorators": true,
-
-        // 给源码里的装饰器声明加上设计类型元数据
-        "emitDecoratorMetadata": true,
-
-
-        /* 其他选项 */
-
-        // 禁止对同一个文件的不一致的引用
-        "forceConsistentCasingInFileNames": true,
-
-        // 忽略所有的声明文件（ *.d.ts）的类型检查
-        "skipLibCheck": true,
-
-        // 允许从没有设置默认导出的模块中默认导入
-        "allowSyntheticDefaultImports": true,
+    // 配置映射,需要依赖: tsconfig-paths | webpack | ...
+    "paths": {
+      "@libs/*": ["libs/*"],
+      "@middleware/*": ["middleware/*"],
+      "@router/*": ["router/*"],
+      "@constants/*": ["constants/*"],
+      "@typings/*": ["typings/*"],
+      "@utils/*": ["utils/*"]
     },
-    "exclude": ["node_modules", "dist"]
+
+    /* 实验性选项 */
+
+    // 启用实验性的ES装饰器
+    "experimentalDecorators": true,
+
+    // 给源码里的装饰器声明加上设计类型元数据
+    "emitDecoratorMetadata": true,
+
+    /* 其他选项 */
+
+    // 禁止对同一个文件的不一致的引用
+    "forceConsistentCasingInFileNames": true,
+
+    // 忽略所有的声明文件（ *.d.ts）的类型检查
+    "skipLibCheck": true,
+
+    // 允许从没有设置默认导出的模块中默认导入
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
