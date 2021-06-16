@@ -1,11 +1,11 @@
 {
   "name": "an-rapid",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "An Rapid is a Rapid back-end development framework based on the onion model and modifier to adapt to the changing times.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "serve": "nodemon --watch src -e ts --exec ts-node src/main.ts",
+    "serve": "nodemon --watch src -e ts --exec ts-node src",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,21 +1,22 @@
-import { REQUEST_TYPE, ROUTE_REFLECT } from '@constants/route'
-import { ValidatorRuleDict, ValidatorProps } from '@typings/verify'
-
 // TODO: 将 函数装饰器 改为 参数装饰器
+
+import 'reflect-metadata'
+import { REQUEST_TYPE, ROUTE_REFLECT } from '../../constants/route'
+import { ValidatorProps, ValidatorRuleDict } from '../../typings/verify'
 
 /**
  * 入参校验
  */
-export const createMappingDecorator = (location: REQUEST_TYPE) => (
-  field: string,
-  rules: ValidatorProps
-): MethodDecorator => (target: any, key: any) => {
-  const ruleDict: ValidatorRuleDict = Reflect.getMetadata(ROUTE_REFLECT.RULE_DICT, target[key]) || {}
+export const createMappingDecorator =
+  (location: REQUEST_TYPE) =>
+  (field: string, rules: ValidatorProps): MethodDecorator =>
+  (target: any, key: any) => {
+    const ruleDict: ValidatorRuleDict = Reflect.getMetadata(ROUTE_REFLECT.RULE_DICT, target[key]) || {}
 
-  ruleDict[field] = { ...rules, location }
+    ruleDict[field] = { ...rules, location }
 
-  Reflect.defineMetadata(ROUTE_REFLECT.RULE_DICT, ruleDict, target[key])
-}
+    Reflect.defineMetadata(ROUTE_REFLECT.RULE_DICT, ruleDict, target[key])
+  }
 
 /**
  * 路由参数校验

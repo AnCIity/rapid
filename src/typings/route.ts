@@ -1,4 +1,4 @@
-import { RESPONSE_STATUS } from '@constants/route'
+import { RESPONSE_STATUS } from '../constants/route'
 import { ValidatorRuleDict } from './verify'
 
 /**

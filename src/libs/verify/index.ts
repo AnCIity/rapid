@@ -1,4 +1,4 @@
-import { ValidatorRules } from '@typings/verify'
+import { ValidatorRules } from '../../typings/verify'
 
 export class Verify {
   constructor(private field: string, private value: any, private rules: ValidatorRules) {}

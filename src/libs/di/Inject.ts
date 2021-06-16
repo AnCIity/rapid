@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import Container from './Container'
 
 // 使用 id 定义模块后，需要使用 id 来注入模块

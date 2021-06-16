@@ -1,22 +1,28 @@
-import { REQUEST_METHOD, ROUTE_REFLECT } from '@constants/route'
+import 'reflect-metadata'
+import { REQUEST_METHOD, ROUTE_REFLECT } from '../../constants/route'
 
 /**
  * 控制器装饰器
  * TODO: 第二个参数
  * 组件库开发 封装同步进行 技术选型
  */
-export const Controller = (path: string): ClassDecorator => target =>
-  Reflect.defineMetadata(ROUTE_REFLECT.PREFIX, path, target)
+export const Controller =
+  (path: string): ClassDecorator =>
+  target =>
+    Reflect.defineMetadata(ROUTE_REFLECT.PREFIX, path, target)
 
 /**
  * 创建请求方法装饰器
  */
-const createMappingDecorator = (method: string) => (path?: string): MethodDecorator => (target: any, key: any) => {
-  Reflect.defineMetadata(ROUTE_REFLECT.PREFIX, typeof path === 'string' ? path : `/${key}`, target[key])
-  Reflect.defineMetadata(ROUTE_REFLECT.METHOD, method, target[key])
-  Reflect.defineMetadata(ROUTE_REFLECT.HANDLER, target[key], target[key])
-  Reflect.defineMetadata(ROUTE_REFLECT.CONSTRUCTOR, target.constructor, target[key])
-}
+const createMappingDecorator =
+  (method: string) =>
+  (path?: string): MethodDecorator =>
+  (target: any, key: any) => {
+    Reflect.defineMetadata(ROUTE_REFLECT.PREFIX, typeof path === 'string' ? path : `/${key}`, target[key])
+    Reflect.defineMetadata(ROUTE_REFLECT.METHOD, method, target[key])
+    Reflect.defineMetadata(ROUTE_REFLECT.HANDLER, target[key], target[key])
+    Reflect.defineMetadata(ROUTE_REFLECT.CONSTRUCTOR, target.constructor, target[key])
+  }
 
 /* 请求方法装饰器 start */
 
@@ -37,6 +43,8 @@ export const Patch = createMappingDecorator(REQUEST_METHOD.PATCH)
 /**
  * 注释
  */
-export const Comment = (comment: string): MethodDecorator => (target: any, key: any) => {
-  Reflect.defineMetadata(ROUTE_REFLECT.COMMENT, comment, target[key])
-}
+export const Comment =
+  (comment: string): MethodDecorator =>
+  (target: any, key: any) => {
+    Reflect.defineMetadata(ROUTE_REFLECT.COMMENT, comment, target[key])
+  }

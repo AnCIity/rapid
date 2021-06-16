@@ -1,6 +1,6 @@
 import Router from 'koa-router'
-import { documents, getRouteMapList } from '@libs/route'
-import verify from '@libs/verify/middleware'
+import { documents, getRouteMapList } from '../libs/route'
+import verify from '../libs/verify/middleware'
 
 const router = new Router({ prefix: '/api' })
 

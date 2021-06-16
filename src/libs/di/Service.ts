@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import Container from './Container'
 
 interface ConstructableFunction extends Function {

@@ -1,4 +1,4 @@
-import { REQUEST_TYPE } from '@constants/route'
+import { REQUEST_TYPE } from '../constants/route'
 
 export declare type RequiredType = boolean | [boolean, string]
 

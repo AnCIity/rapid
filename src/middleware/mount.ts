@@ -2,8 +2,8 @@
  * 扩展挂载 Context 中间件
  */
 
-import { RESPONSE_STATUS } from '@constants/route'
 import { Context, Next } from 'koa'
+import { RESPONSE_STATUS } from '../constants/route'
 
 const mountExtend = () => (ctx: Context, next: Next) => {
   ctx.answer = {

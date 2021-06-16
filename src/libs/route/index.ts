@@ -1,8 +1,9 @@
+import 'reflect-metadata'
 import fs from 'fs'
 import path from 'path'
-import loadDir from '@utils/loadDir'
-import { IRouteMap, IRouteMapList } from '@typings/route'
-import { ROUTE_REFLECT } from '@constants/route'
+import { ROUTE_REFLECT } from '../../constants/route'
+import { IRouteMap, IRouteMapList } from '../../typings/route'
+import loadDir from '../../utils/loadDir'
 
 export const documents = []
 
@@ -54,14 +55,16 @@ const generateDocument = (params: IRouteMap) => {
   documents.push(params)
 }
 
+const controllerDir = path.join(__dirname.split(`node_modules`)[0], 'src/controller/')
+
 // 获取所有控制器
-const controllers: any = loadDir(path.join(__dirname, '../../controller/'))
+const controllers: any = loadDir(controllerDir)
 
 /**
  * 获取路由映射数据列表
  */
 export const getRouteMapList = (): IRouteMapList =>
   fs
-    .readdirSync(path.join(__dirname, '../../controller/'))
+    .readdirSync(controllerDir)
     .map(filename => getRouteForClass(new controllers[path.basename(filename, '.js')]()))
     .flat()

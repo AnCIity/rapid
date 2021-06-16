@@ -3,10 +3,17 @@ import Koa from 'koa'
 import bodyParser from 'koa-bodyparser'
 import logger from 'koa-logger'
 import staticFile from 'koa-static'
-import { router } from '@router/index'
-import onerror from '@middleware/error'
-import mountExtend from '@middleware/mount'
 import path from 'path'
+import onerror from './middleware/error'
+import mountExtend from './middleware/mount'
+// TODO: 优先暴露后运行 将路由放在初始化中加载
+// TODO: 静态资源 desc 处理
+
+export { Controller, Post, Patch, Put, Delete, Options, Get, Comment } from './libs/route/decorator'
+
+export { Body, Params, Query } from './libs/verify/decorator'
+
+import { router } from './router'
 
 class Rapid {
   private app: Koa<Koa.DefaultState, Koa.DefaultContext>

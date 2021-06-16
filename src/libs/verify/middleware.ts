@@ -3,8 +3,8 @@
  */
 
 import { Context, Next } from 'koa'
-import { Verify } from '@libs/verify'
-import { ValidatorRuleDict } from '@typings/verify'
+import { ValidatorRuleDict } from '../../typings/verify'
+import { Verify } from './'
 
 const verify = (ruleDict: ValidatorRuleDict) => (ctx: Context, next: Next) => {
   const params = ctx.params

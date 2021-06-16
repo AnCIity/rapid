@@ -6,7 +6,7 @@
     "target": "ESNext",
 
     // 指定生成哪个模块系统代码
-    "module": "commonjs",
+    "module": "CommonJS",
 
     // 编译过程中需要引入的库文件的列表
     "lib": ["ESNext"],
@@ -49,17 +49,17 @@
     /* 映射路径 */
 
     // 基础路径
-    "baseUrl": "./src",
+    // "baseUrl": "./src",
 
     // 配置映射,需要依赖: tsconfig-paths | webpack | ...
-    "paths": {
-      "@libs/*": ["libs/*"],
-      "@middleware/*": ["middleware/*"],
-      "@router/*": ["router/*"],
-      "@constants/*": ["constants/*"],
-      "@typings/*": ["typings/*"],
-      "@utils/*": ["utils/*"]
-    },
+    // "paths": {
+    //   "@libs/*": ["libs/*"],
+    //   "@middleware/*": ["middleware/*"],
+    //   "@router/*": ["router/*"],
+    //   "@constants/*": ["constants/*"],
+    //   "@typings/*": ["typings/*"],
+    //   "@utils/*": ["utils/*"]
+    // },
 
     /* 实验性选项 */
 
