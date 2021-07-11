@@ -6,12 +6,15 @@ import staticFile from 'koa-static'
 import path from 'path'
 import onerror from './middleware/error'
 import mountExtend from './middleware/mount'
+
 // TODO: 优先暴露后运行 将路由放在初始化中加载
 // TODO: 静态资源 desc 处理
 
 export { Controller, Post, Patch, Put, Delete, Options, Get, Comment } from './libs/route/decorator'
 
 export { Body, Params, Query } from './libs/verify/decorator'
+
+export { Context } from 'koa'
 
 import { router } from './router'
 
