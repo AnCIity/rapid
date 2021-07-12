@@ -5,6 +5,29 @@
 import { Context, Next } from 'koa'
 import { RESPONSE_STATUS } from '../constants/route'
 
+declare module 'koa' {
+  interface DefaultContext {
+    answer: {
+      /**
+       * 成功
+       */
+      resolve: (data?: any, message?: string | null) => void
+      /**
+       * 失败
+       */
+      reject: (data?: any, message?: string | null) => void
+      /**
+       * 断言
+       */
+      affirm: (value: any, message: string, status?: number) => void
+    }
+
+    params: { [key: string]: any }
+    query: { [key: string]: any }
+    body: { [key: string]: any }
+  }
+}
+
 const mountExtend = () => (ctx: Context, next: Next) => {
   ctx.answer = {
     resolve: (data = null, message = null) => {
